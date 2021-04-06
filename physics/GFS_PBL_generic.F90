@@ -14,7 +14,7 @@
       subroutine set_aerosol_tracer_index(imp_physics, imp_physics_wsm6,          &
                                           imp_physics_thompson, ltaerosol,        &
                                           imp_physics_mg, ntgl, imp_physics_gfdl, &
-                                          imp_physics_zhao_carr, kk, &
+                                          imp_physics_zhao_carr, kk,              &
                                           errmsg, errflg)
       implicit none
       !
@@ -82,10 +82,6 @@
       subroutine GFS_PBL_generic_pre_run (im, levs, nvdiff, ntrac,                       &
         ntqv, ntcw, ntiw, ntrw, ntsw, ntlnc, ntinc, ntrnc, ntsnc, ntgnc,                 &
         ntwa, ntia, ntgl, ntoz, ntke, ntkev, nqrimef, trans_aero, ntchs, ntchm,          &
-! Dong
-!        imp_physics, imp_physics_gfdl, imp_physics_nssl, imp_physics_thompson, imp_physics_wsm6,           &
-!        imp_physics_zhao_carr, imp_physics_mg, imp_physics_fer_hires, cplchm, ltaerosol, &
-
         ntccn, nthl, nthnc, ntgv, nthv,                                                  &
         imp_physics, imp_physics_gfdl, imp_physics_thompson, imp_physics_wsm6,           &
         imp_physics_zhao_carr, imp_physics_mg, imp_physics_fer_hires, imp_physics_nssl2m,&
@@ -104,7 +100,7 @@
       integer, intent(in) :: ntwa, ntia, ntgl, ntoz, ntke, ntkev, nqrimef,ntchs, ntchm
       integer, intent(in) :: ntccn, nthl, nthnc, ntgv, nthv
       logical, intent(in) :: trans_aero, ldiag3d, qdiag3d, lssav
-      integer, intent(in) :: imp_physics, imp_physics_gfdl, imp_physics_nssl, imp_physics_thompson, imp_physics_wsm6
+      integer, intent(in) :: imp_physics, imp_physics_gfdl, imp_physics_thompson, imp_physics_wsm6
       integer, intent(in) :: imp_physics_zhao_carr, imp_physics_mg, imp_physics_fer_hires
       integer, intent(in) :: imp_physics_nssl2m, imp_physics_nssl2mccn
       logical, intent(in) :: cplchm, ltaerosol, nssl_hail_on, hybedmf, do_shoc, satmedmf
@@ -306,7 +302,7 @@
           call set_aerosol_tracer_index(imp_physics, imp_physics_wsm6,          &
                                         imp_physics_thompson, ltaerosol,        &
                                         imp_physics_mg, ntgl, imp_physics_gfdl, &
-                                        imp_physics_zhao_carr, kk, &
+                                        imp_physics_zhao_carr, kk,              &
                                         errmsg, errflg)
           if (.not.errflg==1) return
           !
