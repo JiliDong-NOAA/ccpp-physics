@@ -486,10 +486,6 @@
                ntiw, ntclamt, ntrw, ntsw, ntrnc, ntsnc, ntgl, ntgnc,    &
                xlon, xlat, gt0, gq0, imp_physics, imp_physics_mg,       &
                imp_physics_zhao_carr, imp_physics_zhao_carr_pdf,        &
-! Dong
-!               imp_physics_gfdl, imp_physics_nssl, imp_physics_thompson,&
-!               imp_physics_wsm6, imp_physics_fer_hires, prsi,           &
-
                imp_physics_gfdl, imp_physics_thompson,                  &
                imp_physics_wsm6, imp_physics_fer_hires,                 &
                imp_physics_nssl2m, imp_physics_nssl2mccn, prsi,         &
@@ -641,7 +637,7 @@
             clw(i,k,2) = gq0(i,k,ntcw)                    ! water
           enddo
         enddo
-      else if (imp_physics == imp_physics_wsm6 .or. imp_physics == imp_physics_mg .or. imp_physics == imp_physics_fer_hires) then
+      elseif (imp_physics == imp_physics_wsm6 .or. imp_physics == imp_physics_mg .or. imp_physics == imp_physics_fer_hires) then
         do k=1,levs
           do i=1,im
             clw(i,k,1) = gq0(i,k,ntiw)                    ! ice
