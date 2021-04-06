@@ -341,7 +341,6 @@ contains
                +TEMI*DDY(j)*aer_pres(I1,J2,L,n1)+DDX(j)*TEMJ*aer_pres(I2,J1,L,n1))&
           +tx2*(TEMI*TEMJ*aer_pres(I1,J1,L,n2)+DDX(j)*DDY(J)*aer_pres(I2,J2,L,n2) &
                +TEMI*DDY(j)*aer_pres(I1,J2,L,n2)+DDX(j)*TEMJ*aer_pres(I2,J1,L,n2))
-
         ENDDO
       ENDDO
 
@@ -369,7 +368,7 @@ contains
              tx1 = temi/(aerpres(j,i1) - aerpres(j,i2))
              tx2 = temj/(aerpres(j,i1) - aerpres(j,i2))
              DO ii = 1, ntrcaer
-           aerout(j,L,ii)= aerpm(j,i1,ii)*tx1 + aerpm(j,i2,ii)*tx2
+               aerout(j,L,ii)= aerpm(j,i1,ii)*tx1 + aerpm(j,i2,ii)*tx2
              ENDDO
            endif
         ENDDO   !L-loop
