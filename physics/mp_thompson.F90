@@ -331,6 +331,7 @@ module mp_thompson
 !>@{
       subroutine mp_thompson_run(ncol, nlev, con_g, con_rd,        &
                               con_eps, convert_dry_rho,            &
+                              sedisemi, sedi_semi_update,          &
                               spechum, qc, qr, qi, qs, qg, ni, nr, &
                               is_aerosol_aware, nc, nwfa, nifa,    &
                               nwfa2d, nifa2d,                      &
@@ -406,6 +407,11 @@ module mp_thompson
          ! CCPP error handling
          character(len=*),          intent(  out) :: errmsg
          integer,                   intent(  out) :: errflg
+
+         ! SL for sedimentation
+         logical,                   intent(in)    :: sedisemi 
+         logical,                   intent(in)    :: sedi_semi_update
+
 
          ! Local variables
 
@@ -679,6 +685,7 @@ module mp_thompson
                                  icenc=ice_mp, icencv=delta_ice_mp,                             &
                                  graupelnc=graupel_mp, graupelncv=delta_graupel_mp, sr=sr,      &
                                  refl_10cm=refl_10cm,                                           &
+                                 sedisemi=sedisemi, sedi_semi_update=sedi_semi_update,          &  
                                  diagflag=diagflag, do_radar_ref=do_radar_ref_mp,               &
                                  re_cloud=re_cloud, re_ice=re_ice, re_snow=re_snow,             &
                                  has_reqc=has_reqc, has_reqi=has_reqi, has_reqs=has_reqs,       &
@@ -719,6 +726,7 @@ module mp_thompson
                                  icenc=ice_mp, icencv=delta_ice_mp,                             &
                                  graupelnc=graupel_mp, graupelncv=delta_graupel_mp, sr=sr,      &
                                  refl_10cm=refl_10cm,                                           &
+                                 sedisemi=sedisemi, sedi_semi_update=sedi_semi_update,          &                 
                                  diagflag=diagflag, do_radar_ref=do_radar_ref_mp,               &
                                  has_reqc=has_reqc, has_reqi=has_reqi, has_reqs=has_reqs,       &
                                  rand_perturb_on=rand_perturb_on, kme_stoch=kme_stoch,          &
@@ -759,6 +767,7 @@ module mp_thompson
                                  icenc=ice_mp, icencv=delta_ice_mp,                             &
                                  graupelnc=graupel_mp, graupelncv=delta_graupel_mp, sr=sr,      &
                                  refl_10cm=refl_10cm,                                           &
+                                 sedisemi=sedisemi, sedi_semi_update=sedi_semi_update,          &                 
                                  diagflag=diagflag, do_radar_ref=do_radar_ref_mp,               &
                                  re_cloud=re_cloud, re_ice=re_ice, re_snow=re_snow,             &
                                  has_reqc=has_reqc, has_reqi=has_reqi, has_reqs=has_reqs,       &
@@ -798,6 +807,7 @@ module mp_thompson
                                  icenc=ice_mp, icencv=delta_ice_mp,                             &
                                  graupelnc=graupel_mp, graupelncv=delta_graupel_mp, sr=sr,      &
                                  refl_10cm=refl_10cm,                                           &
+                                 sedisemi=sedisemi, sedi_semi_update=sedi_semi_update,          &                 
                                  diagflag=diagflag, do_radar_ref=do_radar_ref_mp,               &
                                  has_reqc=has_reqc, has_reqi=has_reqi, has_reqs=has_reqs,       &
                                  rand_perturb_on=rand_perturb_on, kme_stoch=kme_stoch,          &
