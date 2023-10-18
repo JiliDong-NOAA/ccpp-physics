@@ -60,7 +60,7 @@
       rmulacvg=10.
       epsilon=1.E-11
       km1=km-1
-      betadcu = 2.0
+      betadcu = 1.0
       betascu = 8.0
       invdelt = 1./delt
 
