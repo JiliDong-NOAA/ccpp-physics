@@ -4,6 +4,7 @@
 
 !>\defgroup nsslmp NSSL MP Module
 !! This module contains the front end to NSSL microphysics scheme.
+! Jili Dong test
 module mp_nssl
 
     use machine, only : kind_phys
