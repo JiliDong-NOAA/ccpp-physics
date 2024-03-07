@@ -950,6 +950,14 @@
             do i=1,im
               deltaq(i,k1) = 0.0
               cnvw  (i,k1) = cnvw_in(i,k)
+! for Thompson and NSSL MP, send qci_conv from G-F deep convection to
+! cloud fraction calculation
+              if(imp_physics == imp_physics_thompson .or. imp_physics == imp_physics_nssl) then
+                if(imfdeepcnv==imfdeepcnv_gf .or. imfdeepcnv==imfdeepcnv_c3) then
+                  cnvw  (i,k1) = qci_conv(i,k)
+                endif
+              endif
+
               cnvc  (i,k1) = 0.0
             enddo
           enddo

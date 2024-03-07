@@ -701,8 +701,7 @@
 
         elseif ( imp_physics == imp_physics_nssl ) then                              ! NSSL MP
 
-          if(do_mynnedmf .or. imfdeepcnv == imfdeepcnv_gf .or.          &
-     &          imfdeepcnv == imfdeepcnv_c3) then ! MYNN PBL or GF or unified conv
+          if(do_mynnedmf) 
               !-- MYNN PBL or convective GF
               !-- use cloud fractions with SGS clouds
               do k=1,NLAY
@@ -724,6 +723,8 @@
      &                   cld_resnow)
           else
             ! MYNN PBL or GF convective are not used
+! for non-MYNN with G-F deep convection, use Xu-Randall for cloud
+! fraction computation
               call progcld_thompson_wsm6 (plyr,plvl,tlyr,qlyr,qstl,     & !  --- inputs
      &                   rhly,tracer1,xlat,xlon,slmsk,dz,delp,          &
      &                   ntrac-1, ntcw-1,ntiw-1,ntrw-1,                 &
@@ -741,8 +742,7 @@
 
         elseif(imp_physics == imp_physics_thompson) then                              ! Thompson MP
 
-          if(do_mynnedmf .or. imfdeepcnv == imfdeepcnv_gf               &
-     &          .or. imfdeepcnv == imfdeepcnv_c3) then ! MYNN PBL or GF conv
+          if(do_mynnedmf) 
 
             if (icloud == 3) then
               call progcld_thompson (plyr,plvl,tlyr,qlyr,qstl,rhly,     & !  --- inputs
@@ -782,6 +782,8 @@
 
           else
             ! MYNN PBL or GF convective are not used
+! for non-MYNN with G-F deep convection, use Xu-Randall for cloud
+! fraction computation
 
             if (icloud == 3) then
               call progcld_thompson (plyr,plvl,tlyr,qlyr,qstl,rhly,     & !  --- inputs
