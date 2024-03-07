@@ -701,7 +701,7 @@
 
         elseif ( imp_physics == imp_physics_nssl ) then                              ! NSSL MP
 
-          if(do_mynnedmf) 
+          if(do_mynnedmf) then 
               !-- MYNN PBL or convective GF
               !-- use cloud fractions with SGS clouds
               do k=1,NLAY
@@ -742,7 +742,7 @@
 
         elseif(imp_physics == imp_physics_thompson) then                              ! Thompson MP
 
-          if(do_mynnedmf) 
+          if(do_mynnedmf) then 
 
             if (icloud == 3) then
               call progcld_thompson (plyr,plvl,tlyr,qlyr,qstl,rhly,     & !  --- inputs
